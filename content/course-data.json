@@ -1,0 +1,136 @@
+{
+  "site": {
+    "name": "高雄NGH催眠執行師課程資訊站",
+    "baseUrl": "https://kevin198156.github.io/kaohsiung-ngh-course/",
+    "language": "zh-Hant-TW",
+    "role": "課程推廣與資訊整理頁，不取代正式招生頁"
+  },
+  "course": {
+    "code": "R14226",
+    "name": "美國NGH催眠執行師國際證照授證課程（實體課）",
+    "year": 2026,
+    "registrationStatusAtLastCheck": "可報名",
+    "registrationPeriod": {
+      "start": "2026-01-15",
+      "end": "2026-10-25"
+    },
+    "coursePeriod": {
+      "start": "2026-10-31",
+      "end": "2026-11-22"
+    },
+    "inPersonDates": [
+      "2026-10-31",
+      "2026-11-01",
+      "2026-11-07",
+      "2026-11-08",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-21",
+      "2026-11-22"
+    ],
+    "additionalSession": "Day 9期末報告採視訊，時間另約",
+    "inPersonTime": "09:00–18:00",
+    "totalHours": 100,
+    "location": {
+      "name": "國立高雄大學教室",
+      "campusAddress": "高雄市楠梓區高雄大學路700號",
+      "room": "【待提供：本期實際教室；上線前若未確認，頁面維持「依開課通知」】"
+    },
+    "fees": {
+      "regularTuitionTwd": 45000,
+      "earlyBirdTuitionTwd": 42750,
+      "earlyBirdCondition": "開課一個月前報名；適用界線請以正式課程頁與承辦人確認為準",
+      "professionalTuitionTwd": 35000,
+      "professionalCondition": "醫療相關專業人員、心理諮詢、社工及長照人員，須依官方要求提供工作、學業或專業證明並聯繫中心",
+      "nghCertificateFee": {
+        "includedInTuition": false,
+        "usdApprox": 150,
+        "twdApprox": 5000,
+        "note": "由老師代收並繳至美國NGH總會；金額為官方頁面所列約數，申請時以實際通知為準"
+      },
+      "unconfirmedInclusions": "【待確認：教材、餐食、保險等是否包含；正式網站不宣稱】"
+    },
+    "eligibility": {
+      "minimumAge": 18,
+      "priorExperienceRequired": "官方頁面未列催眠先修經驗要求，資格仍以正式公告與承辦人確認為準"
+    },
+    "completion": {
+      "courseAttendance": "課程內容區列出席率須達85%以上",
+      "caseReports": "課後完成6名個案催眠並繳交完整報告",
+      "assessment": "完成培訓並通過考核評薦後，可協助申請NGH國際會員資格及認證證書",
+      "nukCertificate": "注意事項列課程逾三分之一缺課者不發國立高雄大學推廣教育結業證書",
+      "creditStatus": "非學分班，不授予學分、學位證書及成績單"
+    },
+    "refundSummary": {
+      "beforeClass": "開班上課日前申請，退還已繳學費、雜費等九成",
+      "withinOneThird": "開班後未逾全期三分之一申請，退還已繳學費、雜費等半數",
+      "afterOneThird": "開班後已逾全期三分之一，不予退還",
+      "cancelled": "因故未能開班，全額退還已繳費用"
+    },
+    "instructor": {
+      "name": "蔡惠婷",
+      "officialListing": "美國NGH催眠師學會認證講師"
+    },
+    "organizer": {
+      "name": "國立高雄大學推廣教育中心",
+      "role": "正式招生、報名與課程公告單位"
+    },
+    "promotionBrand": {
+      "brandName": "睿思催眠療癒學院",
+      "companyName": "睿思有限公司",
+      "role": "講師所屬單位與課程推廣品牌",
+      "facebook": "https://www.facebook.com/ResetAndExecuteBrain"
+    },
+    "contact": {
+      "name": "黃小姐",
+      "phone": "07-5919109",
+      "email": "hya100423@nuk.edu.tw",
+      "source": "國立高雄大學推廣教育中心正式課程頁"
+    },
+    "officialUrl": "https://eec.nuk.edu.tw/course_detail.php?sn=1059"
+  },
+  "instructorProvidedProfile": {
+    "source": "使用者提供之「蔡惠婷老師介紹.pdf」，建立日期2024-12-19",
+    "items": [
+      "睿思健康服務中心創辦人",
+      "美國NGH授證國際催眠師授課講師",
+      "美國NGH授證國際催眠師",
+      "亞洲NGH協會會員",
+      "中華健康管理協會乙級健康管理師",
+      "國立高雄大學國際高階經營管理碩士",
+      "輔英科技大學護理系",
+      "元景耳鼻喉科神經科診所精神科專任療癒個管師",
+      "丙級美容師"
+    ],
+    "verificationNote": "除官方課程頁列明之NGH認證講師身分外，其餘項目目前未提供公開查證網址；對外頁面會標示為講師提供資料，不延伸推論。"
+  },
+  "sources": [
+    {
+      "name": "國立高雄大學推廣教育中心正式課程頁",
+      "url": "https://eec.nuk.edu.tw/course_detail.php?sn=1059",
+      "lastChecked": "2026-07-24",
+      "priority": "日期、時數、費用、地點、報名、結業、證書與退費的優先來源"
+    },
+    {
+      "name": "國立高雄大學交通資訊",
+      "url": "https://www.nuk.edu.tw/p/412-1000-587.php?Lang=zh-tw",
+      "lastChecked": "2026-07-24",
+      "priority": "校址與交通的官方來源"
+    },
+    {
+      "name": "專案負責人提供資料與合法素材",
+      "url": null,
+      "lastChecked": "2026-07-24",
+      "priority": "品牌角色、講師簡介、Logo與講師照片"
+    }
+  ],
+  "lastUpdated": "2026-07-24",
+  "pendingData": [
+    "【待提供：本期實際上課教室與開課前報到方式】",
+    "【待提供：可公開查證的講師學經歷或證照連結】",
+    "【待確認：100小時的逐項計算方式】",
+    "【待確認：學費是否包含教材、餐食或其他項目】",
+    "【待確認：早鳥優惠的精確截止時間】"
+  ]
+}
+
