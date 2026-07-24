@@ -58,6 +58,12 @@ python scripts/validate_site.py
 
 網站不需要Node.js、資料庫、付費字型、付費圖片或付費主機。
 
+## YouTube Shorts影片素材
+
+2026高雄NGH課程的25.5秒直式宣傳片專案位於`video/hyperframes-course-promo/`，包含HyperFrames來源、字幕、縮圖、YouTube上傳文案、檢查清單與QA報告。
+
+最終MP4位於`video/hyperframes-course-promo/output/`，依`.gitignore`保留於本機而不提交Git。上傳前請依`YOUTUBE_UPLOAD_CHECKLIST.md`逐項檢查；完成公開上傳後，將公開YouTube網址交回本專案，再進行第二階段的公開頁與網站整合查核。
+
 ## 重要聲明
 
 本網站不是國立高雄大學官方網站。本頁為課程推廣與資訊整理頁。正式招生、繳費、退費、開課與課程異動規定，均以國立高雄大學推廣教育中心最新公告為準。
