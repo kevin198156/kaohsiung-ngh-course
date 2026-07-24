@@ -284,6 +284,9 @@ JSON-LD必須與可見內容一致，不得加入未證實評論、評分、優�
   - 每次變更後必須執行完整檢查。
   - 不得刪除來源聲明與正式報名連結。
   - 所有對外文字使用台灣繁體中文。
+  - 任何title、文案、JSON-LD、課程條件、外部連結、robots、sitemap或網站架構變更，都必須同步更新`tracking/CHANGE_LOG.md`。
+  - 排名、索引、Search Console與AI能見度只能填入實際證據，不得推測或杜撰。
+  - 追蹤資料不得提交帳號密碼、權杖、未遮蔽後台截圖或其他敏感資料。
 
 - `PROJECT_STATUS.md`
   - 公開網址、GitHub儲存庫、Pages發布方式、目前分支、最後提交。
@@ -292,8 +295,8 @@ JSON-LD必須與可見內容一致，不得加入未證實評論、評分、優�
   - 最近測試日期與結果。
   - 下一個Codex任務應從哪一步繼續。
 
-- `CHANGELOG.md`
-  - 記錄重要內容、SEO、資料與部署變更。
+- `tracking/CHANGE_LOG.md`
+  - 依第十四節規格記錄重要內容、SEO、資料、追蹤與部署變更，避免建立兩套互相衝突的變更紀錄。
 
 這些文件是跨Session的單一事實來源。每次完成重要階段都要同步更新，讓全新的Codex任務讀取後即可延續，不需重新討論全部背景。
 
@@ -393,63 +396,262 @@ Google驗證完成後，優先帶我使用「從Google Search Console匯入」�
 
 ---
 
-## 十四、搜尋與AI長期追蹤
+## 十四、SEO與AI搜尋長期成效追蹤
 
-建立`SEO_TRACKING_PLAN.md`與`tracking/search-tracking.csv`。
+這是必要交付階段，不是選配。網站、部署、Google與Bing設定完成後，必須接著建立追蹤制度與基準資料，讓本專案未來可以整理成可重複使用的方法、數據與作品集。
 
-追蹤查詢至少包括：
+進入此階段後，不要為了追蹤而大幅修改網站。先保存上線時的原始基準；日後只有證據支持時才提出改版。
+
+### 1. 建立固定追蹤資料夾
+
+必須建立：
+
+tracking/
+├─ BASELINE_REPORT.md
+├─ KEYWORD_TRACKING.csv
+├─ AI_VISIBILITY_TRACKING.csv
+├─ SEARCH_CONSOLE_DATA.csv
+├─ CHANGE_LOG.md
+├─ REPORT_28_DAYS_TEMPLATE.md
+└─ TRACKING_GUIDE.md
+
+原始匯出檔與證據截圖日後放在：
+
+- `tracking/raw/search-console/YYYY-MM-DD_to_YYYY-MM-DD/`
+- `tracking/evidence/YYYY-MM-DD/`
+
+不得把帳號密碼、OAuth權杖、API金鑰、未遮蔽帳號截圖或其他敏感資料提交到Git。
+
+### 2. 建立上線基準報告
+
+在`tracking/BASELINE_REPORT.md`記錄：
+
+1. 網站名稱與公開網址。
+2. 正式課程來源網址。
+3. 網站上線日期及證據。
+4. Google索引申請日期；無法確認時標示待使用者確認。
+5. 所有主要公開頁面與404頁清單。
+6. 每頁HTTP、title、description、canonical、meta robots及JSON-LD狀態。
+7. robots.txt、sitemap.xml、內部連結、圖片及正式報名連結狀態。
+8. GitHub Pages儲存庫、發布分支、最新成功部署、commit與檢查日期。
+9. Google是否已收錄各頁面。
+10. Bing是否已收錄各頁面。
+11. 已知指向本站的外部連結，以及本站連出的主要正式來源。
+12. 尚未取得的Search Console、排名、AI能見度與轉換資料。
+13. 所有檢查的日期、方法、來源與證據分類。
+
+索引狀態必須逐頁區分：
+
+- Sitemap發現網址不等於完成收錄。
+- 實際網址測試可抓取不等於完成收錄。
+- Google與Bing的首頁狀態不能推定其他頁面狀態。
+- 個人化搜尋畫面不得當成客觀收錄或排名證明。
+- 無法確認時寫「待確認」，不得猜測。
+
+### 3. 建立固定關鍵字追蹤表
+
+`tracking/KEYWORD_TRACKING.csv`必須使用以下欄位：
+
+check_date
+keyword
+search_engine
+device
+location
+login_status
+official_course_page_position
+github_page_position
+result_page_range
+notes
+evidence_file
+
+Codex必須依正式課程資料預先建立至少8組關鍵字，涵蓋：
 
 - 地區＋課程類型。
-- 地區＋證照／培訓。
+- 課程類型＋地區的不同語序。
+- 地區＋協會／證照名稱＋課程。
 - 正式招生單位＋課程。
 - 講師姓名＋課程。
+- 地區＋證照班。
+- 區域＋執行師／專業培訓。
 - 品牌名稱＋課程。
-- 費用、時數、日期等比較型問題。
-- 使用者可能向ChatGPT、Gemini或Copilot提出的自然語言問題。
 
-追蹤平台：
+每個關鍵字預先建立Google與Bing兩列待測紀錄。
 
-- Google一般搜尋。
-- Google／Gemini搜尋體驗。
-- Microsoft Bing。
+排名紀錄規則：
+
+1. 廣告、地圖、AI摘要與自然搜尋分開，自然排名欄只記一般自然結果。
+2. 沒找到就填`not_found`，不得猜測名次。
+3. 記錄裝置、所在地、登入狀態及檢查範圍。
+4. 建議固定觀察前50筆自然結果，並明確記錄範圍。
+5. 正式課程頁與活動資訊站的位置必須分開記錄。
+6. 單次結果只能標示為「人工觀察」，不能宣稱所有使用者看到相同排名。
+7. 若無法合法可靠地自動查詢，必須引導使用者以無痕模式人工檢查；不得建立大量抓取Google搜尋結果的程式。
+
+### 4. 建立AI能見度追蹤表
+
+`tracking/AI_VISIBILITY_TRACKING.csv`必須使用：
+
+check_date
+platform
+prompt
+course_mentioned
+official_page_cited
+github_page_cited
+facts_correct
+incorrect_information
+competitors_mentioned
+notes
+evidence_file
+
+至少測試：
+
+- ChatGPT。
+- Gemini。
 - Microsoft Copilot。
-- ChatGPT搜尋。
 - Perplexity。
 
-追蹤欄位至少包括：
+依課程資料預先建立至少6組自然語言問題：
 
-- 測試日期。
-- 平台。
-- 查詢詞。
-- 是否找到正式課程。
-- 是否找到活動網站。
-- 排名區間或頁次。
-- 是否引用活動網站。
-- 是否引用正式課程頁。
-- 日期、價格、地點是否正確。
-- Search Console曝光、點擊、CTR、平均排名。
-- Bing曝光或索引狀態。
-- 主要競爭頁面。
-- 後續改善事項。
+- 居住在目標地區，想學該主題，有哪些實體課程？
+- 目標地區有哪些特定協會／證照課程？
+- 比較目標地區同類課程的價格與時數。
+- 正式招生單位是否有此類證照課程？
+- 講師有哪些相關課程？
+- 推廣品牌是否有相關課程？
 
-建立建議時程：
+每個平台都要預先建立完整題目列。不同AI結果會因時間、帳號、地點、模型及搜尋功能變化，只能作能見度觀察，不能宣稱穩定引用或推薦。
 
-- 上線當日：記錄基準值、驗證、Sitemap及索引要求。
-- 第7天：確認Google索引狀態與Bing狀態。
-- 第14天：第一次關鍵字人工抽查。
-- 第30天：整理Search Console曝光、查詢詞、CTR與平均排名。
-- 第60天：比較內容與外部真實連結成效。
-- 第90天：決定是否更新內容、補充FAQ、改善標題或建立新頁。
-- 之後每月一次，課程資料異動時另行檢查。
+`facts_correct`只有在日期、價格、時數、地點、講師、證書及招生角色都核對後才能填`yes`；部分正確填`partial`，並把錯誤寫入`incorrect_information`。
 
-在`tracking/README.md`說明：
+### 5. 建立Search Console資料表
 
-- 追蹤紀錄不得存放帳號密碼或驗證權杖。
-- Search Console與Bing資料應使用匯出報表或人工填寫，不要求公開帳號權限。
-- 不以一次個人化搜尋結果作為正式排名結論。
-- 網站上線、提交索引及結構化資料，只能增加被發現和理解的機會，不能保證搜尋排名、AI引用或推薦。
+`tracking/SEARCH_CONSOLE_DATA.csv`必須使用：
 
-如果目前環境支援安全的定期自動化，可以先提出低風險方案；未經我同意不要建立會登入外部帳號、付費或大量查詢搜尋引擎的自動程序。
+period_start
+period_end
+page
+query
+clicks
+impressions
+ctr
+average_position
+data_source
+export_date
+notes
+
+如果Codex無法直接取得登入後的Search Console資料：
+
+1. 不得杜撰或推算數字。
+2. 在`TRACKING_GUIDE.md`以非技術語言說明如何進入搜尋成效報表。
+3. 告訴使用者應選擇的日期範圍。
+4. 指導開啟點擊、曝光、CTR及平均排名四項指標。
+5. 指導分別匯出「查詢」與「網頁」CSV。
+6. 視需要以頁面篩選匯出每個主要頁面的查詢資料。
+7. 原始下載檔不得修改，放入`tracking/raw/search-console/日期區間/`。
+8. 使用者交回檔案後，Codex再整理到`SEARCH_CONSOLE_DATA.csv`並分析。
+
+必須說明：曝光不是造訪、點擊不是報名、平均排名不是固定名次，介面總數與匯出資料列加總也可能不同。
+
+### 6. 建立變更紀錄
+
+`tracking/CHANGE_LOG.md`至少記錄：
+
+- 日期。
+- 修改內容。
+- 修改原因。
+- 預期影響。
+- 實際結果。
+- 相關commit。
+
+日後只要修改title、description、可見文案、JSON-LD、課程日期與條件、外部連結、網站架構、robots或sitemap，都必須在同一工作階段更新此檔。
+
+預期影響只能寫合理方向，不能寫保證排名。實際結果沒有數據時寫「尚無數據」，不得先填成功。
+
+### 7. 建立28天成效報告模板
+
+`tracking/REPORT_28_DAYS_TEMPLATE.md`必須包含：
+
+1. 專案背景。
+2. 建置目標。
+3. 已完成工作與commit。
+4. 各頁Google與Bing索引狀態。
+5. Search Console點擊、曝光、CTR、平均排名、頁面與查詢資料。
+6. 固定關鍵字曝光。
+7. AI搜尋能見度。
+8. 正式課程頁與活動資訊站的角色差異。
+9. 上線前後比較。
+10. 無法歸因的項目。
+11. 成效限制。
+12. 只根據證據提出的下一階段建議。
+13. 可公開作品集摘要。
+14. 不可公開的內部資料。
+
+報告的重要結論必須標示：
+
+- `[可確認的事實]`
+- `[人工觀察]`
+- `[主觀推估]`
+- `[尚無數據支持的假設]`
+
+沒有上線前同口徑資料時，必須寫「無可比較的上線前基準」，不得為了作品集自行估算成長百分比。
+
+### 8. 建立非技術追蹤指南
+
+`tracking/TRACKING_GUIDE.md`必須說明：
+
+- 基準日今天要記錄什麼。
+- 第7天要逐頁檢查哪些Google與Bing索引狀態。
+- 第7或14天如何進行固定關鍵字與AI問題人工測試。
+- 第28天要取得哪些Search Console資料及何時匯出。
+- 第90天如何判斷是否足以成為正式案例。
+- 如何使用無痕／InPrivate模式搜尋。
+- 如何分辨廣告、地圖、AI摘要與自然搜尋結果。
+- 如何匯出Search Console資料。
+- 如何保存搜尋與AI測試截圖。
+- 截圖如何遮蔽姓名、電子郵件、頭像與私人資訊。
+- CSV日期、`yes`、`no`、`partial`、`not_found`與空白欄位的統一規則。
+- 哪些數字不能用來宣稱成效。
+- 如何避免把正式招生單位原有排名、流量、品牌或報名量誤算成新網站成果。
+
+### 9. 固定追蹤時程
+
+- 上線當日：完成技術基準、Google／Bing設定狀態、追蹤空表與來源紀錄。
+- 第7天：逐頁確認Google及Bing索引，第一次固定關鍵字與AI能見度測試。
+- 第14天：必要時重測尚未收錄或未找到的項目，不因單次結果立即改版。
+- 第28天：匯出第一個完整區間的Search Console資料，完成28天報告。
+- 第60天：比較內容更新、真實外部連結及搜尋查詢變化。
+- 第90天：完成案例判斷、作品集摘要與下一階段建議。
+- 之後每月一次；課程日期、價格、狀態或正式來源異動時另行檢查。
+
+建立追蹤檔時，必須依實際上線日期計算第7、28及90天的建議日期，不得固定沿用範例日期。
+
+### 10. 成效歸因與宣稱限制
+
+必須明確區分：
+
+- 正式招生單位頁面的既有排名與新活動網站的成果。
+- Sitemap發現網址與實際完成索引。
+- 曝光、點擊、報名與成交。
+- AI提及、AI引用、AI推薦與事實正確性。
+- 可確認事實、人工觀察、主觀推估及尚無數據支持的假設。
+
+沒有正式報名端轉換資料時，不能宣稱網站帶來多少報名。沒有同口徑上線前資料時，不能宣稱成長百分比。
+
+網站上線、提交索引及結構化資料，只能增加被發現和理解的機會，不能保證搜尋排名、AI引用或推薦。
+
+### 11. 追蹤階段完成回報
+
+完成追蹤制度後，必須告訴使用者：
+
+1. 已建立哪些追蹤檔案。
+2. 已取得哪些基準資料。
+3. 哪些登入後或人工資料無法自動取得。
+4. 使用者今天只需完成的下一個手動步驟。
+5. 第7天可貼給新Codex任務的延續提示詞。
+6. 第28天可貼給新Codex任務的延續提示詞。
+7. 第90天可貼給新Codex任務的案例整理提示詞。
+
+如果環境支援安全的提醒或定期自動化，可以提出低風險方案；未經使用者同意，不得建立會登入外部帳號、付費或大量查詢搜尋引擎的程序。
 
 ---
 
@@ -487,7 +689,7 @@ Google驗證完成後，優先帶我使用「從Google Search Console匯入」�
 - Google Search Console驗證、Sitemap與索引要求完成或停在明確手動步驟。
 - Bing匯入／驗證、Sitemap與URL檢查完成或停在明確手動步驟。
 - 自動測試、公開網址測試及測試報告完成。
-- PROJECT_STATUS、CHANGELOG、手動指南與追蹤計畫完成。
+- PROJECT_STATUS、手動指南、`tracking/`七個追蹤檔與基準資料完成。
 - 未使用必須付費的服務。
 - 未杜撰資料或作出保證推薦宣稱。
 - Git工作目錄狀態清楚，不混入其他人的變更。
@@ -547,7 +749,7 @@ Google驗證完成後，優先帶我使用「從Google Search Console匯入」�
 網站已建立後，不需要每次重貼完整母提示詞。可在同一儲存庫開啟新Codex任務並貼上：
 
 ```text
-請先完整閱讀本儲存庫的`AGENTS.md`、`PROJECT_STATUS.md`、`README.md`、`content/course-data.json`、`TEST_REPORT.md`、`SEO_TRACKING_PLAN.md`及`tracking/README.md`。
+請先完整閱讀本儲存庫的`AGENTS.md`、`PROJECT_STATUS.md`、`README.md`、`content/course-data.json`、`TEST_REPORT.md`，以及`tracking/`內的`BASELINE_REPORT.md`、`TRACKING_GUIDE.md`、`CHANGE_LOG.md`和所有CSV／報告模板。
 
 依這些文件延續目前課程網站，不要重新設計或推翻已完成工作。先檢查Git狀態與公開網站，再告訴我：
 
@@ -559,6 +761,80 @@ Google驗證完成後，優先帶我使用「從Google Search Console匯入」�
 接著直接完成可自動化的檢查、修正、測試、Git提交與部署。若需要我登入Google、Bing或社群平台，一次只帶我做一個步驟，不要要求帳號密碼。
 
 這次我要處理的事項是：【在此填入，例如「第30天SEO追蹤」、「更新新一期日期與價格」或「檢查Google收錄」】。
+```
+
+---
+
+## 第7天追蹤提示詞
+
+到`tracking/TRACKING_GUIDE.md`記錄的第7天，在同一儲存庫開啟新Codex任務並貼上：
+
+```text
+請先閱讀`AGENTS.md`、`PROJECT_STATUS.md`、`TEST_REPORT.md`與`tracking/`內全部文件，執行本專案第7天SEO與AI搜尋追蹤。
+
+本次以追蹤為主，不要先大幅修改網站。請：
+
+1. 檢查公開網站、robots、sitemap、GitHub Pages與正式報名連結仍正常。
+2. 依`TRACKING_GUIDE.md`逐頁檢查Google及Bing索引狀態；需要登入時一次一步引導我。
+3. 依`KEYWORD_TRACKING.csv`完成或帶我完成固定Google／Bing無痕人工搜尋，分開記錄正式課程頁與活動網站位置。
+4. 依`AI_VISIBILITY_TRACKING.csv`帶我測試ChatGPT、Gemini、Copilot及Perplexity，核對引用與課程事實。
+5. 保存證據檔名，更新CSV、`BASELINE_REPORT.md`、`CHANGE_LOG.md`與`PROJECT_STATUS.md`。
+6. 不得猜測排名、索引或AI結果；沒找到填`not_found`。
+7. 只在明確發現技術錯誤時修正網站，並完成測試、commit與發布。
+
+完成後告訴我已取得的資料、仍缺少的資料，以及第28天的精確檢查日期。
+```
+
+---
+
+## 第28天成效報告提示詞
+
+到第一個完整28天區間結束、Search Console資料已完整後，在同一儲存庫開啟新Codex任務並貼上：
+
+```text
+請先閱讀`AGENTS.md`、`PROJECT_STATUS.md`、`TEST_REPORT.md`與`tracking/`全部文件，執行本專案第28天SEO與AI搜尋成效整理。
+
+請先依`TRACKING_GUIDE.md`確認本次資料期間。若尚未取得Google Search Console匯出檔，一次一步帶我匯出「查詢」、「網頁」及必要的頁面篩選CSV，並告訴我放入哪個`tracking/raw/search-console/日期區間/`資料夾。不要要求帳號密碼，也不要杜撰任何數字。
+
+取得資料後請直接：
+
+1. 保留原始匯出檔，不覆寫。
+2. 整理`SEARCH_CONSOLE_DATA.csv`。
+3. 更新各頁Google與Bing索引狀態。
+4. 重做固定關鍵字與4個AI平台測試，保存證據路徑。
+5. 更新`KEYWORD_TRACKING.csv`、`AI_VISIBILITY_TRACKING.csv`及`CHANGE_LOG.md`。
+6. 依`REPORT_28_DAYS_TEMPLATE.md`產出實際28天報告。
+7. 每項重要結論標示可確認事實、人工觀察、主觀推估或尚無數據支持的假設。
+8. 分開正式課程頁既有成效與活動網站成效。
+9. 沒有同口徑上線前資料時，不計算或宣稱成長百分比。
+10. 只提出1至3項有資料支持的改善建議；未經我同意不要直接大幅改站。
+
+完成後提交追蹤資料與報告到GitHub，並告訴我第60天與第90天要觀察的重點。
+```
+
+---
+
+## 第90天案例整理提示詞
+
+到`TRACKING_GUIDE.md`記錄的第90天，在同一儲存庫開啟新Codex任務並貼上：
+
+```text
+請先閱讀`AGENTS.md`、`PROJECT_STATUS.md`、`TEST_REPORT.md`及`tracking/`全部基準、CSV、證據規則、變更紀錄與歷次報告，執行本專案第90天SEO與AI搜尋案例整理。
+
+請直接完成：
+
+1. 更新Google Search Console最新完整期間資料。
+2. 更新Google與Bing逐頁索引狀態。
+3. 完成固定關鍵字與ChatGPT、Gemini、Copilot、Perplexity追蹤。
+4. 比較基準日、第7天、第28天、第60天及第90天；缺少的時間點必須明列。
+5. 區分活動網站數據、正式招生單位既有成效及無法歸因項目。
+6. 判斷是否具備至少3個可比較時間點、可靠Search Console資料、搜尋／AI證據及完整commit紀錄。
+7. 產出一份90天內部完整報告及一份可公開作品集摘要。
+8. 可公開摘要不得包含帳號、後台截圖、未公開商業資料或無法驗證的成效宣稱。
+9. 所有結論標示可確認事實、人工觀察、主觀推估或尚無數據支持的假設。
+10. 根據證據提出下一期保留、更新、擴充或停止投入的建議。
+
+請完成檔案更新、測試、Git提交與推送；不要把正式招生單位原有排名或報名量算成活動網站成果。
 ```
 
 ---
@@ -576,7 +852,7 @@ Google驗證完成後，優先帶我使用「從Google Search Console匯入」�
 
 網站發布後，一次一步帶我完成Google Search Console驗證、Sitemap、索引要求，以及Bing Webmaster Tools匯入、Sitemap與URL檢查。
 
-同時建立`AGENTS.md`、`PROJECT_STATUS.md`、`TEST_REPORT.md`、`MANUAL_SETUP_GUIDE.md`、`SEO_TRACKING_PLAN.md`與`tracking/search-tracking.csv`，讓後續全新Codex任務可以延續進度，並安排上線後第7、14、30、60、90天的搜尋與AI可見性追蹤。
+同時建立`AGENTS.md`、`PROJECT_STATUS.md`、`TEST_REPORT.md`、`MANUAL_SETUP_GUIDE.md`，以及完整的`tracking/`基準報告、關鍵字CSV、AI能見度CSV、Search Console CSV、變更紀錄、28天報告模板與追蹤指南，讓後續全新Codex任務可以延續進度，並安排上線後第7、14、28、60、90天的搜尋與AI可見性追蹤。
 
 不要只給教學或建議。除非必須由我登入、驗證或提供真實資料，否則請直接執行到完成。
 ```

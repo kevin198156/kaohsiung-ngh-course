@@ -20,6 +20,18 @@
 8. 不得加入`noindex`，也不得在`robots.txt`封鎖Googlebot、Bingbot或OAI-SearchBot。
 9. 結構化資料必須與同一頁可見文字一致，不得放入隱藏優惠、評論、評分或未證實資料。
 10. 若正式資料缺少，請在`content/course-data.json`的`pendingData`保留待補項目；不要把`【待提供】`文字發布在對外HTML。
+11. 任何title、description、可見文案、JSON-LD、課程日期與條件、外部連結、網站架構、robots或sitemap變更，都必須同步更新`tracking/CHANGE_LOG.md`。
+12. 排名、索引、Search Console與AI能見度只能依實際證據記錄；不得杜撰數字，也不得把高雄大學官方頁既有成效算成本站成果。
+13. `tracking/`不得存放或提交帳號密碼、OAuth權杖、API金鑰、未遮蔽後台截圖或其他敏感資料。
+
+## 長期成效追蹤
+
+- `tracking/BASELINE_REPORT.md`是上線技術與索引基準。
+- `tracking/KEYWORD_TRACKING.csv`分開記錄正式課程頁與GitHub活動頁的人工搜尋位置。
+- `tracking/AI_VISIBILITY_TRACKING.csv`記錄ChatGPT、Gemini、Copilot與Perplexity的提及、引用及事實正確性。
+- `tracking/SEARCH_CONSOLE_DATA.csv`只填入Search Console實際匯出資料，不得估算。
+- `tracking/REPORT_28_DAYS_TEMPLATE.md`用於第一期成效報告。
+- `tracking/TRACKING_GUIDE.md`定義第7、28、90天檢查方式、證據保存及不可宣稱事項。
 
 ## 主要資料來源
 
@@ -32,4 +44,3 @@
 - GitHub Pages從`main`分支的儲存庫根目錄發布。
 - 預定公開網址：`https://kevin198156.github.io/kaohsiung-ngh-course/`
 - 儲存庫名稱若改變，必須全站搜尋並更新`kaohsiung-ngh-course`與所有canonical、Open Graph、JSON-LD、robots、sitemap及llms網址。
-

@@ -24,6 +24,21 @@ https://kevin198156.github.io/kaohsiung-ngh-course/
 - `MANUAL_SETUP_GUIDE.md`：GitHub Pages、Google與Bing手動設定指南
 - `SEARCH_TEST_PLAN.md`：上線後搜尋與AI查詢紀錄方式
 - `TEST_REPORT.md`：自動檢查結果與上線後待補測項目
+- `COURSE_WEBSITE_MASTER_PROMPT.md`：新課程可重複使用的完整Codex建站、SEO、部署與追蹤母提示詞
+
+## 長期SEO與AI搜尋追蹤
+
+`tracking/`是本專案正式交付的一部分：
+
+- `BASELINE_REPORT.md`：上線技術、部署、索引與資料缺口基準
+- `KEYWORD_TRACKING.csv`：Google與Bing固定關鍵字人工觀察
+- `AI_VISIBILITY_TRACKING.csv`：ChatGPT、Gemini、Copilot與Perplexity能見度紀錄
+- `SEARCH_CONSOLE_DATA.csv`：Search Console實際匯出資料整理表
+- `CHANGE_LOG.md`：網站、SEO與追蹤變更紀錄
+- `REPORT_28_DAYS_TEMPLATE.md`：上線28天成效報告模板
+- `TRACKING_GUIDE.md`：第7、28、90天檢查、匯出與證據保存指南
+
+追蹤資料必須區分可確認事實、人工觀察、主觀推估與尚無數據支持的假設。不得將高雄大學官方頁的既有排名、流量或報名量計為本站成果。
 
 ## 日後更新日期或價格
 
