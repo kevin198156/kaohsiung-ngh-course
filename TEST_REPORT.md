@@ -70,11 +70,19 @@ python -X utf8 scripts/validate_site.py
 - 未宣稱治療、治癒、保證改善疾病、保證排名、保證收錄或保證AI推薦。
 - 網站不設報名表單，不收集姓名、身分證、付款或健康資料。
 
-## 尚需上線後人工完成
+## 搜尋引擎設定結果
 
-- Google Search Console新增網址前綴資源、驗證網站、提交 `sitemap.xml` 及申請首頁建立索引。
-- Bing Webmaster Tools新增網站、驗證、提交 `sitemap.xml` 並檢查抓取狀態。
-- 以Google Rich Results Test及Schema.org Validator人工檢視公開首頁。
+- Google Search Console網址前綴資源已驗證，`sitemap.xml`已成功提交。
+- Google實際網址測試確認可檢索、擷取成功並允許建立索引；首頁建立索引要求已送出。
+- Google實際網址測試已辨識BreadcrumbList與活動結構化資料。
+- Bing Webmaster Tools已由Google Search Console匯入並自動驗證。
+- Bing Sitemap狀態為成功，發現5個網址，0個錯誤、0個警告。
+- Bing URL Inspection顯示首頁「Indexed successfully」，可出現在Bing。
+
+## 後續觀察事項
+
+- Google處理建立索引要求需要時間，應隔幾天再確認實際收錄狀態。
 - 依 `SEARCH_TEST_PLAN.md` 定期記錄Google、Bing、ChatGPT搜尋、Gemini、Copilot與Perplexity的實際發現及引用狀況。
+- IndexNow不是目前必要項目；若日後頻繁更新課程內容，再評估導入。
 
 網站上線、提交索引及結構化資料，只能增加被發現和理解的機會，不能保證搜尋排名、AI引用或推薦。

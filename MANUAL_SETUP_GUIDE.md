@@ -16,7 +16,16 @@ Codex已完成以下工作，不需要再操作GitHub驗證碼：
 
 `https://kevin198156.github.io/kaohsiung-ngh-course/`
 
-## 下一階段：Google Search Console
+## 已完成：Google Search Console
+
+2026年7月24日完成：
+
+- 已用首頁HTML標記驗證網站擁有權。
+- 已成功提交`sitemap.xml`。
+- 實際網址測試確認Google可抓取首頁，且允許建立索引。
+- 已送出首頁建立索引要求。
+
+以下步驟保留作為日後重新設定時的操作紀錄。
 
 ### 1. 新增網站資源
 
@@ -59,7 +68,15 @@ GitHub Pages專案網站建議選「HTML標記」，因為不需要更改DNS。
 
 建立索引可能需要時間；提交不代表保證收錄或排名。
 
-## 完成Google後：Bing Webmaster Tools
+## 已完成：Bing Webmaster Tools
+
+2026年7月24日完成：
+
+- 已從Google Search Console匯入並自動驗證網站。
+- Sitemap狀態為成功，發現5個網址，0個錯誤、0個警告。
+- URL Inspection顯示首頁「Indexed successfully」，可出現在Bing。
+
+以下步驟保留作為日後重新設定時的操作紀錄。
 
 ### 建議方式：從Google Search Console匯入
 
@@ -83,7 +100,7 @@ GitHub Pages專案網站建議選「HTML標記」，因為不需要更改DNS。
 
 ### IndexNow
 
-IndexNow不是本網站上線的必要條件。若Bing已能讀取sitemap，可先使用Bing的網址提交功能。若日後更新頻繁，再請Codex建立IndexNow金鑰檔與提交流程；不要把任何帳號密碼交給Codex。
+目前Bing已成功讀取sitemap並索引首頁，因此不需要為這個低頻更新的網站增加IndexNow流程。若日後更新頻繁，再請Codex評估建立IndexNow金鑰檔與提交流程；不要把任何帳號密碼交給Codex。
 
 ## 搜尋引擎設定後：真實外部平台待辦
 
