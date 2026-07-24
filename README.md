@@ -25,6 +25,7 @@ https://kevin198156.github.io/kaohsiung-ngh-course/
 - `SEARCH_TEST_PLAN.md`：上線後搜尋與AI查詢紀錄方式
 - `TEST_REPORT.md`：自動檢查結果與上線後待補測項目
 - `COURSE_WEBSITE_MASTER_PROMPT.md`：新課程可重複使用的完整Codex建站、SEO、部署與追蹤母提示詞
+- `HYPERFRAMES_YOUTUBE_SHORT_PROMPT.md`：交給全新Codex任務製作本課程20～30秒HyperFrames YouTube短片、字幕、縮圖與上傳SEO文案
 
 ## 長期SEO與AI搜尋追蹤
 
