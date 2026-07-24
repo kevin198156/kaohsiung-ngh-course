@@ -14,3 +14,15 @@ test-results/
 說明.txt
 PROJECT_INPUT.md
 
+# HyperFrames本機相依、快取、預覽與大型影片輸出
+video/hyperframes-course-promo/node_modules/
+video/hyperframes-course-promo/.hyperframes/
+video/hyperframes-course-promo/.media/
+video/hyperframes-course-promo/.debug/
+video/hyperframes-course-promo/renders/
+video/hyperframes-course-promo/snapshots/
+video/hyperframes-course-promo/output/*.mp4
+video/hyperframes-course-promo/output/*.mov
+video/hyperframes-course-promo/output/*.webm
+video/hyperframes-course-promo/output/*.gif
+video/hyperframes-course-promo/output/*.png

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * { box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; margin: 0; overflow: hidden; }
+      body { position:relative; color:#173b38; background:#fbf8f3; font-family:"Microsoft JhengHei",sans-serif; }
+      .texture { position:absolute; inset:0; opacity:.24; background-image:radial-gradient(circle at 18% 22%,rgba(22,91,85,.09) 0 2px,rgba(22,91,85,0) 3px); background-size:46px 46px; }
+      .orb-a { position:absolute; right:-170px; top:-120px; width:620px; height:620px; border-radius:50%; background:#e7c8b4; }
+      .orb-b { position:absolute; left:-260px; bottom:120px; width:700px; height:700px; border-radius:50%; background:#dbe9e4; }
+      .copy { position:absolute; top:260px; left:84px; right:84px; z-index:3; }
+      .pill { display:inline-block; padding:14px 28px; color:#fbf8f3; background:#165b55; border-radius:99px; font-size:30px; font-weight:800; }
+      h1 { margin:58px 0 0; font-size:108px; line-height:1.13; letter-spacing:-.06em; }
+      h1 span { color:#9b5438; }
+      .sub { margin-top:42px; font-size:42px; font-weight:900; line-height:1.45; }
+      .official { margin-top:30px; width:770px; color:#334944; font-size:30px; font-weight:700; line-height:1.5; }
+      .portrait { position:absolute; right:-5px; bottom:170px; width:610px; height:910px; z-index:2; object-fit:contain; object-position:bottom; }
+      .logo { position:absolute; left:84px; bottom:250px; width:150px; height:150px; z-index:4; border:5px solid #fbf8f3; border-radius:28px; object-fit:cover; }
+      .rule { position:absolute; left:84px; right:84px; bottom:205px; height:7px; background:#d6a94d; z-index:4; }
+    </style>
+  </head>
+  <body>
+    <div class="texture"></div><div class="orb-a"></div><div class="orb-b"></div>
+    <div class="copy">
+      <div class="pill">2026 高雄成人培訓</div>
+      <h1>高雄NGH<br /><span>100小時培訓</span></h1>
+      <div class="sub">8個實體日<br />＋視訊期末報告</div>
+      <div class="official">國立高雄大學推廣教育中心正式招生</div>
+    </div>
+    <img class="portrait" src="../assets/images/instructor-tsai-hui-ting.png" alt="" />
+    <img class="logo" src="../assets/images/reset-hypnosis-academy-logo.jpg" alt="" />
+    <div class="rule"></div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "duration": 25.5,
+  "assertions": [
+    { "kind": "appearsBy", "selector": "#hook-line-1", "bySec": 0.5 },
+    { "kind": "appearsBy", "selector": "#organizer-card", "bySec": 5.2 },
+    { "kind": "appearsBy", "selector": "#spec-hours", "bySec": 8.5 },
+    { "kind": "appearsBy", "selector": "#details-date", "bySec": 12.2 },
+    { "kind": "appearsBy", "selector": "#fee-regular", "bySec": 16.5 },
+    { "kind": "appearsBy", "selector": "#cta-button", "bySec": 21.8 },
+    { "kind": "staysInFrame", "selector": "#hook-line-1" },
+    { "kind": "staysInFrame", "selector": "#course-title" },
+    { "kind": "staysInFrame", "selector": "#spec-hours" },
+    { "kind": "staysInFrame", "selector": "#details-date" },
+    { "kind": "staysInFrame", "selector": "#fees-title" },
+    { "kind": "staysInFrame", "selector": "#cta-title" },
+    { "kind": "staysInFrame", "selector": "#cta-boundary" },
+    { "kind": "keepsMoving", "withinSelector": "#root", "maxStaticSec": 3 }
+  ]
+}

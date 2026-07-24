@@ -1,0 +1,14 @@
+{
+  "name": "hyperframes-course-promo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.7.70 preview",
+    "check": "npx --yes hyperframes@0.7.70 check",
+    "render": "npx --yes hyperframes@0.7.70 render --fps 30 --quality high --workers 2 --output output/kaohsiung-ngh-course-youtube-short.mp4",
+    "publish": "npx --yes hyperframes@0.7.70 publish"
+  },
+  "dependencies": {
+    "gsap": "3.14.2"
+  }
+}
