@@ -1,0 +1,16 @@
+# 作業系統與編輯器暫存
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*.tmp
+
+# 本機測試輸出
+tmp/
+test-results/
+
+# 不發布原始素材與專案工作筆記
+素材/
+說明.txt
+PROJECT_INPUT.md
+
