@@ -1,86 +1,80 @@
 # 網站測試報告
 
-測試日期：2026年7月24日  
-測試版本：Git提交`bf0d79b`前後的相同網站內容
+測試日期：2026年7月24日
 
-## 已通過的自動檢查
+公開網址：https://kevin198156.github.io/kaohsiung-ngh-course/
+
+測試版本：GitHub `main` 分支，提交 `b6d52a1`
+
+## 自動化檢查
 
 執行：
 
 ```text
-python scripts/validate_site.py
+python -X utf8 scripts/validate_site.py
 ```
 
-結果：
+結果：通過。
 
-```text
-網站驗證通過：6個HTML頁面、唯一title/description、H1、圖片、內部連結、JSON-LD、集中資料、robots與sitemap均通過檢查。
-```
+檢查範圍包括：
 
-檢查範圍：
+- 6個HTML頁面均可解析，且分別具有唯一的 `title` 與 `meta description`。
+- 每頁均有且只有一個主要H1，並設定 `lang="zh-Hant-TW"`。
+- canonical、Open Graph、內部連結、圖片路徑及圖片尺寸設定完整。
+- 圖片具有適當替代文字；純裝飾圖片使用空白 `alt`。
+- 所有JSON-LD均可解析，且未加入評論、評分或未確認優惠。
+- `content/course-data.json` 可解析，必填資料與待補資料分開保存。
+- `robots.txt` 未封鎖Googlebot、Bingbot或OAI-SearchBot。
+- `sitemap.xml` 列出5個主要頁面，網址與最後更新日期格式正確。
+- 全站未發現 `noindex`、混合內容或付費服務依賴。
 
-- 6個HTML頁面均存在且可解析。
-- 每頁皆使用`lang="zh-Hant-TW"`。
-- 每頁有且只有一個H1。
-- 每頁title、meta description及canonical皆存在且不重複。
-- 所有主要頁面都包含高雄大學正式課程連結。
-- 所有本機內部連結與圖片路徑均存在。
-- 所有圖片均有`alt`屬性及明確`width`、`height`。
-- 所有JSON-LD均可由JSON解析器解析。
-- `content/course-data.json`可解析且正式網址、網站基底網址正確。
-- `sitemap.xml`可解析，包含5個主要頁面與正確`lastmod`格式。
-- `robots.txt`明確允許Googlebot、Bingbot及OAI-SearchBot，沒有`Disallow: /`。
-- 全站沒有`noindex`。
-- 全站沒有HTTP混合內容連結。
-- 對外HTML沒有`【待提供】`或`【待確認】`占位文字。
-- 全站沒有表單、付款、會員、追蹤碼或第三方JavaScript。
-- 正式課程頁所列的主要報名網址完全一致。
+## 公開網站檢查
+
+- 首頁、講師頁、FAQ、選課指南、政策頁、`404.html`、`robots.txt`、`sitemap.xml` 與CSS均回傳HTTP 200。
+- 不存在的測試網址回傳HTTP 404，GitHub Pages會顯示自訂404內容。
+- 講師照片、品牌圖與社群分享圖均回傳HTTP 200。
+- 正式課程頁、高雄大學交通資訊、睿思Facebook頁及GitHub隱私聲明均回傳HTTP 200。
+- GitHub Pages最新建置狀態為 `built`，對應提交 `b6d52a1`。
+
+## HTML標準與結構化資料
+
+- 6個公開HTML頁面均通過W3C Nu HTML Validator：0 errors、0 warnings。
+- 自動化檢查已逐段解析所有JSON-LD。
+- JSON-LD可見資料與頁面文字一致，未建立虛構評論、評分、成效或醫療效果。
+- Google Rich Results Test與Schema.org Validator仍建議在搜尋引擎開始抓取後人工複查；不同Schema類型不一定會顯示為Google複合式搜尋結果。
+
+## 手機與桌機
+
+以公開網站實測：
+
+- 手機寬度360至375px：6個頁面均無整頁橫向溢出。
+- 費用與比較表在自身容器內可橫向捲動，不會撐寬頁面。
+- 桌機寬度1265px：首頁無橫向溢出。
+- 導覽列、主要按鈕、焦點樣式與內容區塊可正常顯示。
+- 圖片均成功載入，瀏覽器主控台未見明顯JavaScript錯誤。
+- 網站未使用JavaScript，因此沒有前端腳本執行或第三方腳本阻塞問題。
+
+## 效能與可及性
+
+- 網站採純HTML與CSS，沒有框架、追蹤碼、外部字型或第三方JavaScript。
+- 三張本機圖片合計約279KB，其餘頁面與CSS體積小。
+- 設有跳至主要內容連結、鍵盤焦點樣式及 `prefers-reduced-motion`。
+- 主要文字與按鈕配色經靜態對比檢查，達一般文字WCAG AA對比需求。
+- Google PageSpeed Insights API於測試時回傳HTTP 429流量限制，因此本次未取得可重現的Lighthouse分數；不以未執行的分數宣稱通過。
 
 ## 內容與風險檢查
 
-- 日期、總時數、費用、優惠、證書費、地點、報名期、結業與退費均依高雄大學正式課程頁整理。
-- 沒有發布學員心得、學員照片、評分、排名或成功率。
-- 所有「治療、治癒、疾病改善、保證」文字均出現在否定、警示或專業界線脈絡。
-- 沒有將NGH證書或高雄大學推廣教育結業證書描述為台灣醫師、心理師或法定醫事執照。
-- 講師頁清楚區分官方課程頁可核對資料與講師提供資料。
-- 睿思品牌清楚標示為講師所屬與推廣品牌；正式招生單位仍為高雄大學推廣教育中心。
+- 日期、費用、時數、證書費、出席與個案條件均以國立高雄大學公開課程頁為主要來源。
+- 已清楚區分國立高雄大學正式招生、蔡惠婷老師授課及睿思推廣角色。
+- 已標示課程為推廣教育與技能培訓，不等同醫師、心理師或台灣法定醫事證照。
+- 未宣稱治療、治癒、保證改善疾病、保證排名、保證收錄或保證AI推薦。
+- 網站不設報名表單，不收集姓名、身分證、付款或健康資料。
 
-## 可及性與版面靜態檢查
+## 尚需上線後人工完成
 
-- 有跳至主要內容連結。
-- 導覽列及按鈕皆使用明確文字。
-- 所有互動元素都有可見鍵盤焦點樣式。
-- 支援`prefers-reduced-motion`。
-- 主要文字與背景對比：
-  - `#173b38`／`#fbf8f3`：11.53:1
-  - `#667571`／`#fbf8f3`：4.56:1
-  - `#165b55`／`#ffffff`：7.89:1
-  - 頁尾文字`#b8c9c4`／`#102f2d`：8.31:1
-- 手機斷點將雙欄與卡片改為單欄，表格置於可水平捲動容器，圖片限制為容器寬度。
+- Google Search Console新增網址前綴資源、驗證網站、提交 `sitemap.xml` 及申請首頁建立索引。
+- Bing Webmaster Tools新增網站、驗證、提交 `sitemap.xml` 並檢查抓取狀態。
+- 以Google Rich Results Test及Schema.org Validator人工檢視公開首頁。
+- 依 `SEARCH_TEST_PLAN.md` 定期記錄Google、Bing、ChatGPT搜尋、Gemini、Copilot與Perplexity的實際發現及引用狀況。
 
-## 效能與依賴
-
-- 追蹤檔案共22個，總大小約0.39MB。
-- 社群預覽圖已壓縮為JPEG。
-- 不使用外部字型、前端框架、套件CDN、資料庫或付費服務。
-- 頁面沒有JavaScript，因此沒有應用程式JavaScript錯誤或執行阻塞。
-
-## 已確認的外部來源
-
-- 國立高雄大學推廣教育中心正式課程頁可開啟。
-- 國立高雄大學交通資訊頁可開啟。
-- GitHub隱私權聲明可開啟。
-- 睿思Facebook連結由專案負責人提供；自動讀取受到Facebook限制，需在公開網站上線後由瀏覽器人工點選確認。
-
-## 尚待公開網址才能完成
-
-本機預覽網址被目前的內建瀏覽器安全政策封鎖，因此本輪無法以瀏覽器實際截圖驗證桌機及375px手機版。網站發布後必須補做：
-
-- 實際公開首頁與五個頁面的桌機、手機視覺檢查。
-- 瀏覽器主控台與網路載入錯誤檢查。
-- 所有公開連結、404、robots及sitemap的HTTP狀態。
-- Google Rich Results Test或Schema.org Validator。
-- W3C Nu HTML Validator。
-- Lighthouse效能、可及性、最佳實務及SEO檢查。
-
-以上項目尚未執行，不應描述為已通過。GitHub Pages公開後由Codex繼續檢查與修正。
+網站上線、提交索引及結構化資料，只能增加被發現和理解的機會，不能保證搜尋排名、AI引用或推薦。
