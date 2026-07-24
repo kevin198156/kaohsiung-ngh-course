@@ -23,6 +23,7 @@ https://kevin198156.github.io/kaohsiung-ngh-course/
 - `llms.txt`：給搜尋型AI參考的補充摘要；不是收錄必要條件
 - `MANUAL_SETUP_GUIDE.md`：GitHub Pages、Google與Bing手動設定指南
 - `SEARCH_TEST_PLAN.md`：上線後搜尋與AI查詢紀錄方式
+- `TEST_REPORT.md`：自動檢查結果與上線後待補測項目
 
 ## 日後更新日期或價格
 
@@ -46,4 +47,3 @@ python scripts/validate_site.py
 本網站不是國立高雄大學官方網站。本頁為課程推廣與資訊整理頁。正式招生、繳費、退費、開課與課程異動規定，均以國立高雄大學推廣教育中心最新公告為準。
 
 本課程屬推廣教育與技能培訓，不等同醫師、心理師或其他台灣法定醫事專業執照，也不取代醫療診斷或心理治療。
-
