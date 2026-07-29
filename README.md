@@ -13,13 +13,14 @@ https://kevin198156.github.io/kaohsiung-ngh-course/
 - `faq.html`：常見問題
 - `course-guide.html`：高雄催眠課程選擇指南
 - `policy.html`：政策、來源、隱私與專業界線
+- `registration-guide.html`：高雄大學會員註冊與正式報名操作指南
 - `404.html`：找不到頁面
 
 ## 資料與搜尋檔案
 
 - `content/course-data.json`：集中課程資料、來源與待確認項目
 - `robots.txt`：允許一般搜尋引擎、Googlebot、Bingbot與OAI-SearchBot
-- `sitemap.xml`：五個主要頁面的網站地圖
+- `sitemap.xml`：六個主要頁面的網站地圖
 - `llms.txt`：給搜尋型AI參考的補充摘要；不是收錄必要條件
 - `MANUAL_SETUP_GUIDE.md`：GitHub Pages、Google與Bing手動設定指南
 - `SEARCH_TEST_PLAN.md`：上線後搜尋與AI查詢紀錄方式

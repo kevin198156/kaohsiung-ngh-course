@@ -48,7 +48,9 @@
         "twdApprox": 5000,
         "note": "由老師代收並繳至美國NGH總會；金額為官方頁面所列約數，申請時以實際通知為準"
       },
-      "unconfirmedInclusions": "【待確認：教材、餐食、保險等是否包含；正式網站不宣稱】"
+      "courseMaterialsIncluded": true,
+      "mealCostsIncluded": false,
+      "inclusionsSourceNote": "教材包含於學費、上課期間餐費不包含，依專案負責人於2026-07-29提供資料；高雄大學正式課程頁未逐項載明。"
     },
     "eligibility": {
       "minimumAge": 18,
@@ -87,10 +89,15 @@
       "email": "hya100423@nuk.edu.tw",
       "source": "國立高雄大學推廣教育中心正式課程頁"
     },
-    "officialUrl": "https://eec.nuk.edu.tw/course_detail.php?sn=1059"
+    "officialUrl": "https://eec.nuk.edu.tw/course_detail.php?sn=1059",
+    "registration": {
+      "memberRegistrationUrl": "https://eec.nuk.edu.tw/register.php",
+      "memberLoginUrl": "https://eec.nuk.edu.tw/login.php",
+      "note": "會員註冊與登入均由國立高雄大學推廣教育中心網站受理；實際欄位與流程以該站最新頁面為準。"
+    }
   },
   "instructorProvidedProfile": {
-    "source": "使用者提供之「蔡惠婷老師介紹.pdf」，建立日期2024-12-19",
+    "source": "使用者提供之「蔡惠婷老師介紹.pdf」，建立日期2024-12-19；並於2026-07-29補充講師博士生身分與教材、餐費說明",
     "items": [
       "睿思健康服務中心創辦人",
       "美國NGH授證國際催眠師授課講師",
@@ -100,7 +107,7 @@
       "國立高雄大學國際高階經營管理碩士",
       "輔英科技大學護理系",
       "元景耳鼻喉科神經科診所精神科專任療癒個管師",
-      "丙級美容師"
+      "樹德科技大學人類性學研究所博士生"
     ],
     "verificationNote": "除官方課程頁列明之NGH認證講師身分外，其餘項目目前未提供公開查證網址；對外頁面會標示為講師提供資料，不延伸推論。"
   },
@@ -108,7 +115,7 @@
     {
       "name": "國立高雄大學推廣教育中心正式課程頁",
       "url": "https://eec.nuk.edu.tw/course_detail.php?sn=1059",
-      "lastChecked": "2026-07-24",
+      "lastChecked": "2026-07-29",
       "priority": "日期、時數、費用、地點、報名、結業、證書與退費的優先來源"
     },
     {
@@ -120,16 +127,15 @@
     {
       "name": "專案負責人提供資料與合法素材",
       "url": null,
-      "lastChecked": "2026-07-24",
-      "priority": "品牌角色、講師簡介、Logo與講師照片"
+      "lastChecked": "2026-07-29",
+      "priority": "品牌角色、講師簡介、教材與餐費說明、Logo與講師照片"
     }
   ],
-  "lastUpdated": "2026-07-24",
+  "lastUpdated": "2026-07-29",
   "pendingData": [
     "【待提供：本期實際上課教室與開課前報到方式】",
     "【待提供：可公開查證的講師學經歷或證照連結】",
     "【待確認：100小時的逐項計算方式】",
-    "【待確認：學費是否包含教材、餐食或其他項目】",
     "【待確認：早鳥優惠的精確截止時間】"
   ]
 }

@@ -17,6 +17,7 @@ PUBLIC_HTML = [
     ROOT / "instructor.html",
     ROOT / "faq.html",
     ROOT / "course-guide.html",
+    ROOT / "registration-guide.html",
     ROOT / "policy.html",
     ROOT / "404.html",
 ]
@@ -193,6 +194,7 @@ def main() -> int:
             EXPECTED_BASE + "instructor.html",
             EXPECTED_BASE + "faq.html",
             EXPECTED_BASE + "course-guide.html",
+            EXPECTED_BASE + "registration-guide.html",
             EXPECTED_BASE + "policy.html",
         ]
         if locations != expected:
@@ -220,7 +222,7 @@ def main() -> int:
         return 1
 
     print(
-        "網站驗證通過：6個HTML頁面、唯一title/description、H1、圖片、內部連結、"
+        "網站驗證通過：7個HTML頁面、唯一title/description、H1、圖片、內部連結、"
         "JSON-LD、集中資料、robots與sitemap均通過檢查。"
     )
     return 0
