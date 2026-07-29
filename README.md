@@ -2,9 +2,16 @@
 
 繁體中文、手機優先、零建置工具的GitHub Pages靜態網站，用於整理2026年國立高雄大學推廣教育中心「美國NGH催眠執行師國際證照授證課程」公開資訊，並將使用者導向正式課程頁報名。
 
-## 預定公開網址
+## 公開網址
 
 https://kevin198156.github.io/kaohsiung-ngh-course/
+## 維護入口
+
+- [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md)：新 Session 與維護者的完整專案交接、同步檢查表與標準流程
+- [AGENTS.md](AGENTS.md)：不可違反的資料、SEO、健康聲明與 Git 維護規則
+- [content/course-data.json](content/course-data.json)：集中課程資料、來源與待補項目
+- [SEARCH_TEST_PLAN.md](SEARCH_TEST_PLAN.md)：上線後搜尋與 AI 發現測試計畫
+- [tracking/CHANGE_LOG.md](tracking/CHANGE_LOG.md)：已完成網站、SEO 與追蹤變更紀錄
 
 ## 網站頁面
 

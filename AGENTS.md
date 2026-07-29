@@ -42,5 +42,12 @@
 ## 發布方式
 
 - GitHub Pages從`main`分支的儲存庫根目錄發布。
-- 預定公開網址：`https://kevin198156.github.io/kaohsiung-ngh-course/`
+- 目前公開網址：`https://kevin198156.github.io/kaohsiung-ngh-course/`
 - 儲存庫名稱若改變，必須全站搜尋並更新`kaohsiung-ngh-course`與所有canonical、Open Graph、JSON-LD、robots、sitemap及llms網址。
+## 交接與 Git 安全程序
+
+- 新 Session 開始時，先依序閱讀本檔案、`PROJECT_HANDOFF.md`、`README.md`與`content/course-data.json`，再進行任何修改。
+- 修改前必須檢查目前分支、`git status`、未追蹤檔案與最近 commit；不屬於本次任務的檔案不得暫存、提交、合併或推送。
+- 新增公開頁面時，必須同步檢查全站導覽與適用頁尾、`404.html`導覽、canonical、Open Graph、麵包屑、JSON-LD、`sitemap.xml`、`llms.txt`、最後更新日期與`scripts/validate_site.py`。
+- 修改完成後，除既有網站驗證外，必須執行`git diff --check`；功能分支可再執行`git diff --check main...HEAD`。
+- 未經專案負責人確認，不得直接推送、合併或部署；不得以 force push、rebase、amend 或重寫既有 commit 取代一般安全流程。
